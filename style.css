@@ -1,0 +1,497 @@
+/* =========================
+   RESET
+========================= */
+
+
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:#111;
+    overflow-x: hidden;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.header{
+    position:fixed;
+    top:0;
+    left:0;
+
+    width:100%;
+    height:80px;
+
+    display:flex;
+    align-items:center;
+
+    padding:0 40px;
+
+    background:rgba(0,0,0,0.2);
+    backdrop-filter:blur(10px);
+
+    z-index:1000;
+}
+
+/*========================
+   LEFT SECTION
+========================= */
+
+.header-left{
+    flex:1;
+    display:flex;
+    justify-content:flex-start;
+    align-items:center;
+}
+.logo{
+    flex:1;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.logo a{
+    text-decoration:none;
+    color:white;
+    font-size:1.8rem;
+    font-weight:bold;
+    letter-spacing:4px;
+}
+.header-right{
+    flex:1;
+    display:flex;
+    justify-content:flex-end;
+    align-items:center;
+    gap:25px;
+}
+
+/* =========================
+   NAVIGATION
+========================= */
+
+.nav-menu ul{
+    display:flex;
+    align-items:center;
+    gap:35px;
+
+    list-style:none;
+}
+
+.nav-menu a{
+    text-decoration:none;
+    color:white;
+    font-size:0.95rem;
+    transition:0.3s;
+}
+
+.nav-menu ul{
+    display:flex;
+    align-items:center;
+    gap:25px;
+    list-style:none;
+}
+.nav-menu a:hover{
+    color:#d4af37;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+.hamburger,
+.search-btn{
+    background:none;
+    border:none;
+
+    color:white;
+    font-size:1.4rem;
+
+    cursor:pointer;
+
+    transition:0.3s;
+}
+
+.hamburger:hover,
+.search-btn:hover{
+    color:#d4af37;
+}
+
+/* =========================
+   SIDEBAR MENU
+========================= */
+
+.side-menu{
+    position:fixed;
+
+    top:0;
+    left:-300px;
+
+    width:300px;
+    height:100vh;
+
+    background:#111;
+
+    display:flex;
+    flex-direction:column;
+
+    padding:90px 30px;
+
+    transition:0.4s ease;
+
+    z-index:1200;
+}
+.horizontal-links{
+    display:flex;
+    flex-wrap:wrap;
+    gap:15px;
+    margin-bottom:20px;
+}
+
+.vertical-links{
+    display:flex;
+    flex-direction:column;
+}
+.side-menu.active{
+    left:0;
+}
+
+.side-menu a{
+    text-decoration:none;
+    color:white;
+
+    padding:15px 0;
+
+    border-bottom:1px solid rgba(255,255,255,0.1);
+
+    transition:0.3s;
+}
+
+.side-menu a:hover{
+    color:#d4af37;
+}
+
+.side-menu hr{
+    margin:20px 0;
+    border:none;
+    border-top:1px solid #333;
+}
+
+/* =========================
+   CLOSE BUTTON
+========================= */
+
+.close-btn{
+    position:absolute;
+
+    top:20px;
+    right:20px;
+
+    background:none;
+    border:none;
+
+    color:white;
+    font-size:2rem;
+
+    cursor:pointer;
+}
+
+/* =========================
+   OVERLAY
+========================= */
+
+.overlay{
+    position:fixed;
+    inset:0;
+
+    background:rgba(0,0,0,0.6);
+
+    opacity:0;
+    visibility:hidden;
+
+    transition:0.3s;
+
+    z-index:1100;
+}
+
+.overlay.active{
+    opacity:1;
+    visibility:visible;
+}
+
+/* =========================
+   DEMO HERO SECTION
+========================= */
+.hero {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+    background: #000;
+}
+
+/* =========================
+   VIDEO LAYERS
+========================= */
+.hero-video {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 0.9s ease;
+    z-index: 0;
+}
+
+
+.hero-video.active {
+    opacity: 1;
+}
+
+/* video fill */
+.hero-video video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform:scale(1.08);
+    transition:transform .2s linear;
+}
+
+/* =========================
+   DARK OVERLAY (for luxury look)
+========================= */
+.hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            to top,
+            rgba(0,0,0,.75),
+            rgba(0,0,0,.35),
+            rgba(0,0,0,.45)
+        );
+
+    z-index: 1;
+}
+
+/* =========================
+   TEXT LAYERS (CINEMATIC STYLE)
+========================= */
+.hero-text {
+    position: absolute;
+    inset: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    padding: 0 8vw;
+
+    color: white;
+
+    opacity: 0;
+    transform: translateY(25px);
+    transition: opacity 0.9s ease, transform 0.9s ease;
+
+    z-index: 2;
+}
+
+/* active text */
+.hero-text.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* inner container */
+.text-inner {
+    max-width: 520px;
+}
+.hero-text.active .text-inner {
+    animation: luxuryFade 1.2s ease;
+}
+
+@keyframes luxuryFade {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* typography */
+.hero-text h1 {
+    font-size: clamp(3rem, 6vw, 6rem);
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin-bottom: 15px;
+    line-height: 1.1;
+}
+.hero-text p {
+    font-size: 1.1rem;
+    opacity: 0.85;
+    margin-bottom: 22px;
+    line-height: 1.5;
+}
+
+/* button */
+.hero-btn {
+    display: inline-block;
+    padding: 14px 32px;
+
+    border: 1px solid #d4af37;
+    color: #d4af37;
+
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.85rem;
+
+    transition: all 0.35s ease;
+}
+
+.hero-btn:hover {
+    background: #d4af37;
+    color: #000;
+}
+
+/* =========================
+   REMOVE OLD CENTER CONTENT (safety)
+========================= */
+.hero-content {
+    display: none;
+}
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:900px){
+
+    .nav-menu{
+        display:none;
+    }
+
+    .logo a{
+        font-size:1.4rem;
+    }
+
+    .header{
+        padding:0 20px;
+    }
+}
+
+
+
+@media(max-width:480px){
+
+    .header{
+        height:70px;
+        padding:0 15px;
+    }
+
+    .logo a{
+        font-size:1rem;
+        letter-spacing:2px;
+    }
+
+    .hero-text{
+        padding:0 25px;
+        justify-content:center;
+        text-align:center;
+    }
+
+    .hero-text h1{
+        font-size:2rem;
+    }
+
+    .hero-text p{
+        font-size:.95rem;
+    }
+
+    .hero-btn{
+        padding:12px 24px;
+        font-size:.75rem;
+    }
+
+    .side-menu{
+        width:260px;
+    }
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.6s ease;
+}
+
+.reveal.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media (max-width: 360px) {
+
+    .hero-text h1 {
+        font-size: 1.6rem;
+    }
+
+    .logo a {
+        font-size: 0.9rem;
+    }
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+
+
+/* =========================
+   TABLET (768px+)
+========================= */
+@media (min-width: 768px) {
+    .container {
+        padding: 0 20px;
+    }
+
+    .news-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* =========================
+   LAPTOP (1024px+)
+========================= */
+@media (min-width: 1024px) {
+    .container {
+        max-width: 1100px;
+        margin: auto;
+    }
+}
+
+/* =========================
+   DESKTOP (1440px+)
+========================= */
+@media (min-width: 1440px) {
+    .container {
+        max-width: 1300px;
+    }
+
+    .hero-text h1 {
+        font-size: 6rem;
+    }
+}

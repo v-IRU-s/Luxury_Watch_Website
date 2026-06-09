@@ -1,0 +1,229 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:#0d0d0d;
+    font-family:Arial, sans-serif;
+}
+
+/* ======================
+   HERO
+====================== */
+
+.collection-hero{
+    height:60vh;
+
+    background:url("collection-banner.jpg") center center/cover;
+
+    position:relative;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+}
+
+.hero-overlay{
+    position:absolute;
+    inset:0;
+
+    background:rgba(0,0,0,.55);
+}
+
+.collection-content{
+    position:relative;
+    z-index:2;
+
+    color:white;
+    max-width:800px;
+    padding:0 30px;
+}
+
+.collection-content span{
+    color:#d4af37;
+    letter-spacing:3px;
+    text-transform:uppercase;
+}
+
+.collection-content h1{
+    font-size:4rem;
+    margin:20px 0;
+    font-weight:300;
+}
+
+.collection-content p{
+    color:rgba(255,255,255,.75);
+    line-height:1.8;
+}
+
+/* ======================
+   GRID
+====================== */
+
+.collection-grid{
+    padding:100px 8%;
+
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:35px;
+}
+
+/* ======================
+   CARD
+====================== */
+
+.watch-card{
+    position:relative;
+    height:520px;
+    overflow:hidden;
+    border-radius:12px;
+
+    cursor:pointer;
+
+    transition:
+        transform .5s ease,
+        box-shadow .5s ease;
+}
+
+
+.watch-card img{
+    position:absolute;
+    inset:0;
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    transition:
+        opacity .6s ease,
+        transform .8s ease;
+}
+.img-default{
+    opacity:1;
+}
+
+.img-hover{
+    opacity:0;
+}
+
+.watch-card::before{
+    content:"";
+
+    position:absolute;
+    inset:0;
+
+    background:
+        linear-gradient(
+            to top,
+            rgba(0,0,0,.85),
+            rgba(0,0,0,.15)
+        );
+
+    z-index:1;
+}
+
+.card-content{
+    position:absolute;
+    left:25px;
+    bottom:25px;
+
+    z-index:2;
+}
+
+.card-content h3{
+    color:white;
+    font-size:1.6rem;
+    margin-bottom:8px;
+}
+
+.card-content p{
+    color:#d4af37;
+}
+
+/* ======================
+   HOVER
+====================== */
+
+.watch-card:hover{
+    transform:translateY(-12px);
+
+    box-shadow:
+        0 25px 50px rgba(212,175,55,.18);
+}
+
+.watch-card:hover .img-default{
+    opacity:0;
+    transform:scale(1.08);
+}
+
+.watch-card:hover .img-hover{
+    opacity:1;
+    transform:scale(1.08);
+}
+
+/* ======================
+   RESPONSIVE
+====================== */
+
+@media(max-width:1000px){
+
+    .collection-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+
+@media(max-width:768px){
+
+    .collection-grid{
+        grid-template-columns:1fr;
+    }
+
+    .collection-content h1{
+        font-size:2.5rem;
+    }
+
+    .watch-card{
+        height:420px;
+    }
+}
+
+
+/* =========================
+   TABLET (768px+)
+========================= */
+@media (min-width: 768px) {
+    .container {
+        padding: 0 20px;
+    }
+
+    .news-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* =========================
+   LAPTOP (1024px+)
+========================= */
+@media (min-width: 1024px) {
+    .container {
+        max-width: 1100px;
+        margin: auto;
+    }
+}
+
+/* =========================
+   DESKTOP (1440px+)
+========================= */
+@media (min-width: 1440px) {
+    .container {
+        max-width: 1300px;
+    }
+
+    .hero-text h1 {
+        font-size: 6rem;
+    }
+}

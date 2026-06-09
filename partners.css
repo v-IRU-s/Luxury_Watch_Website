@@ -1,0 +1,219 @@
+/* =========================
+   BASE PAGE
+========================= */
+
+.partners {
+    padding: 140px 8vw 80px;
+    background: #111;
+    color: white;
+}
+
+.page-title {
+    font-size: 3rem;
+    font-weight: 300;
+    letter-spacing: 3px;
+    margin-bottom: 60px;
+    text-transform: uppercase;
+}
+
+/* =========================
+   SECTION BLOCK
+========================= */
+
+.block {
+    margin-bottom: 80px;
+}
+
+.block-title {
+    font-size: 1.6rem;
+    font-weight: 300;
+    letter-spacing: 2px;
+    margin-bottom: 30px;
+    color: #d4af37;
+}
+
+/* =========================
+   ATHLETE GRID
+========================= */
+
+.athlete-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+}
+
+.athlete-card {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.athlete-card img {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s ease;
+}
+
+.athlete-card .info {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 20px;
+
+    background: linear-gradient(to top, rgba(0,0,0,0.85), transparent);
+
+    opacity: 0;
+    transform: translateY(20px);
+    transition: 0.4s ease;
+}
+
+.athlete-card:hover img {
+    transform: scale(1.1);
+}
+
+.athlete-card:hover .info {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.athlete-card h3 {
+    font-weight: 400;
+    font-size: 1.2rem;
+}
+
+.athlete-card p {
+    font-size: 0.85rem;
+    opacity: 0.8;
+}
+
+/* =========================
+   BRAND GRID (NO CROPPING)
+========================= */
+
+.brand-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 25px;
+}
+
+/* BRAND CARD */
+.brand-card {
+    position: relative;
+    height: 170px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+    border-radius: 12px;
+
+    background: #0a0a0a;
+
+    cursor: pointer;
+
+    padding: 15px;
+    border: none;
+}
+
+/* NO CROPPING IMAGE */
+.brand-card img {
+    max-width: 100%;
+    max-height: 100%;
+
+    width: auto;
+    height: auto;
+
+    object-fit: contain;
+
+    display: block;
+
+    transition: transform 0.5s ease;
+}
+
+/* hover effect */
+.brand-card:hover img {
+    transform: scale(1.05);
+}
+
+/* subtle overlay */
+.brand-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background: rgba(0,0,0,0.12);
+    transition: 0.3s ease;
+}
+
+.brand-card:hover::after {
+    background: rgba(0,0,0,0.05);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 768px) {
+
+    .partners {
+        padding: 120px 20px 60px;
+    }
+
+    .page-title {
+        font-size: 2.2rem;
+        margin-bottom: 40px;
+    }
+
+    .athlete-card img {
+        height: 260px;
+    }
+
+    .brand-card {
+        height: 140px;
+        padding: 10px;
+    }
+}
+
+
+
+/* =========================
+   TABLET (768px+)
+========================= */
+@media (min-width: 768px) {
+    .container {
+        padding: 0 20px;
+    }
+
+    .news-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* =========================
+   LAPTOP (1024px+)
+========================= */
+@media (min-width: 1024px) {
+    .container {
+        max-width: 1100px;
+        margin: auto;
+    }
+}
+
+/* =========================
+   DESKTOP (1440px+)
+========================= */
+@media (min-width: 1440px) {
+    .container {
+        max-width: 1300px;
+    }
+
+    .hero-text h1 {
+        font-size: 6rem;
+    }
+}
