@@ -153,10 +153,30 @@ body {
 
 @media(max-width:768px) {
     .story-content h1 { font-size: 3rem; }
+    .brand-story-content {
+            width: 90%;
+            max-width: 100%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 15px;
+        }
+
+        .brand-story-content p {
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
     .brand-story-content h2 { font-size: 2.3rem; }
     .stats-section { grid-template-columns: 1fr; }
 }
+@media (max-width: 480px) {
+    .story-content h1 {
+        font-size: 2rem;
+    }
 
+    .brand-story-content h2 {
+        font-size: 1.7rem;
+    }
+}
 
 /* =========================
    TABLET (768px+)
